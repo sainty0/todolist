@@ -1,15 +1,22 @@
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
 
-import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
+import Task   from '../components/Task';
 
 export default function TabOneScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/TabOneScreen.tsx" />
+      {/* To Do List */}
+      <View style={styles.tasksWrapper}>
+        <Text style={styles.sectionTitle}>Today's Tasks</Text>
+
+        {/* To Do Task Items */}
+        <View style={styles.items}>
+          <Task text='hello there'/>
+        </View>
+
+      </View>
     </View>
   );
 }
@@ -17,16 +24,21 @@ export default function TabOneScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#E8EAED',
   },
-  title: {
-    fontSize: 20,
+
+  tasksWrapper: {
+    paddingTop: 80,
+    paddingHorizontal: 20,
+    backgroundColor: 'rgba(0,0,0,0)',
+  },
+
+  sectionTitle:{
+    fontSize: 24,
     fontWeight: 'bold',
   },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
+  items:{
+    backgroundColor: 'transparent',
+    marginTop: 30,
   },
 });
